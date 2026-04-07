@@ -119,8 +119,9 @@ zjuthesis 模板有三种使用方式，Overleaf，本地编译，或者 Contain
 
 ### 字数统计
 
-本模板提供了一个脚本用于统计正文字数，请在根目录下使用 `latexmk` 编译一遍模板，然后执行脚本 `script/utils/word_count.sh`。
-此脚本调用了 `texcount` 工具，该工具是 TeX Live 的一部分，不需要额外安装。
+本模板提供了一个脚本用于统计正文字数，请在根目录下使用 `latexmk` 编译一遍模板，然后执行 `bash script/utils/word_count.sh`。
+脚本会优先调用 `texcount`（或 `texcount.pl`），并在常见 Windows/WSL 的 TeX Live 路径中自动查找 `texcount.exe`。
+如果仍提示找不到命令，请将 TeX Live 的 `bin/windows` 目录加入环境变量 `PATH`（例如 `D:\TexLive\2023\bin\windows`）。
 
 ## Slides 模板
 
