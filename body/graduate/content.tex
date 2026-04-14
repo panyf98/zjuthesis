@@ -1,103 +1,470 @@
-\chapter{关于本模板}
+\chapter{绪论}
 
-本模板根据浙江大学研究生院编写的《浙江大学研究生学位论文编写规则》~\cite{zjugradthesisrules}，
-在原有的 zjuthesis 模板~\cite{zjuthesis}基础上开发而来。
+\section{课题来源}
 
-本模板的本科生版本\cite{zjuthesisrules}得到了浙江大学本科生院老师的支持与审核，
-已经在本科生院网上公示。
-但当前的研究生版本并未经过研究生院老师的审核，
-同学们使用时要注意对照模板与要求，
-切不可盲目使用。
+本学位论文研究工作得到以下基金及项目的联合资助：国家自然科学基金；浙江省“尖兵”“领雁”研发攻关计划项目：聚合物光学产品高性能精准注射成形技术及装备 （2022C01069）。
 
-作者本人并未编写过浙江大学研究生毕业论文，
-所以不清楚具体要求。
-如果有热心同学愿意帮忙，
-可以替我联系相关老师，我会配合审核并修改代码。
+\section{研究背景及意义}
 
-\section{Overleaf 使用注意事项}
+\section{注射成形料筒温度控制研究现状}
 
-如果你在Overleaf上编译本模板，请注意如下事项：
+\section{当前研究存在的问题}
 
-\begin{itemize}
-    \item 删除根目录的 ``.latexmkrc'' 文件，否则编译失败且不报任何错误
-    \item 字体有版权所以本模板不能附带字体，请务必手动上传字体文件，并在各个专业模板下手动指定字体。
-        具体方法参照 GitHub 主页的说明。
-    \item 当前的Overleaf默认使用TexLive 2017进行编译，但一些伪粗体复制乱码的问题需要TexLive 2019版本来解决。
-        所以各位同学可以在Overleaf上编写论文时务必切换到TexLive 2019或更新版本来编译，以免产生查重相关问题。
-        具体说明参照 GitHub 主页。
-\end{itemize}
+\section{论文的研究内容与框架}
+
+\section{本章小结}
 
 
-\section{节标题}
+\chapter{径向/轴向多温区传热的料筒温度机理模型}
 
-我们可以用includegraphics来插入现有的jpg等格式的图片，
-如\autoref{fig:zju-logo}所示。
+【本章摘要】
 
-\begin{figure}[htbp]
+\section{引言}
+
+
+\chapter{机理模型驱动的料筒温度广义预测控制方法}
+
+【本章摘要】
+
+\section{引言}
+
+聚合物加工作为一种高能耗工艺，在材料加工行业中占据了相当大的比重（超过三分之一）\cite{Zhao_2020_intelligent}。其中，注塑成型是目前应用最广泛的聚合物产品大规模生产方法之一\cite{Yao_2007_optimal,Yao_2008_barrel,Peng_2011_melt}。因此，如何提升注塑成型的效率已成为行业关注的焦点\cite{Peng_2011_melta,Peng_2012_model}。注塑成型效率在很大程度上取决于良品率与能源消耗\cite{Chen_2018_online,Chen_2019_monitoring}。良品率作为衡量产品质量一致性的关键指标，深受聚合物熔体温度的影响\cite{Gao_2017_development}。因此，对料筒温度进行精确控制显得尤为重要\cite{Bui_2015_development}。此外，加热系统所消耗的能量占注塑成型总能耗的60\%以上\cite{Brown_2016_energy,Aboud_2019_comprehensive,Chang_2006_experimental}。基于此，开发更高效的加热系统热管理技术具有重要的研究价值，有助于推动全球节能减排目标的实现\cite{Chang_2006_simulation}。综上所述，亟需开展针对加热控制方法的研究，以同时实现高精度的温度控制与高效的能源利用。\par
+
+注塑成型工艺参数的优化一直是备受关注的研究课题 \cite{Jeon_2022_melt,Kanagalakshmi_2016_implementation,Karagoz_2021_effect,Llado_2008_influence}。其中，料筒温度是影响产品质量的关键因素之一 \cite{Manyatsi_2022_effects}。为此，各类加热控制方法得到了广泛研究，包括比例-积分-微分（PID）控制\cite{Martin_2022_infrared,Pongpanyaporn_2020_temperature}、模型预测控制（MPC）\cite{Sanchez_2021_rapid,Tabi_2021_improving,Tian_2021_highly}、前馈控制 \cite{Wen_2020_multizone,Xiang_2020_microstructure} 以及深度学习方法 \cite{Zhao_2021_insitu,Zhao_2022_nozzle,Bui_2015_design}。众多学者致力于将这些方法应用于料筒加热控制，其中电阻加热是目前应用最广泛的加热技术。Yao等人 \cite{Yao_2007_optimal} 提出了一种时间最优控制方法，旨在实现最短的启动时间与近乎零的超调量。在单区加热实验中，当目标温度设定为185\centigrade 时，其调节时间约为17分钟。Peng等人 \cite{Peng_2011_melt} 设计了一种基于对角递归神经网络的非线性MPC方法，以提高加热的同步性。结果表明，各温区之间的最大温差小于3.5\centigrade。Ruan等人 \cite{Ruan_2019_improvinga} 提出了一种将前馈迭代学习控制（ILC）算法与深度Q学习算法相结合的方法。结果表明，与PID控制相比，该方法使产品重量的一致性提高了70\%。然而，电阻加热器存在散热快、电热转换效率低等固有特性，需要消耗大量能量以维持工作温度 \cite{Hopmann_2021_prediction}。\par
+
+远红外加热作为一种先进的加热技术，具有散热损失低、能源效率高\cite{Camacho_2007_model}以及温度分布更均匀\cite{Aboud_2019_comprehensive}等显著优势。目前，该技术已广泛应用于多个领域，例如注塑模具加热\cite{Bui_2015_development}、食品加工\cite{Brown_2016_energy,Chang_2006_experimental}以及建筑环境调控\cite{Chang_2006_simulation}等。然而，针对远红外料筒加热的研究仍相对不足，尤其是在控制策略与能源管理方面。当前，若干技术难点制约着该领域的深入研究。其中一个主要挑战在于，远红外加热器的保温结构导致散热损失较低，进而引发冗余热量积聚，这通常会造成较大的温度超调。将冗余热量作为辅助热源加以利用，被认为是一种潜在的解决方案\cite{Chen_2018_online,Chen_2019_monitoring}。Guo等人\cite{Guo_2023_integrated}为电动汽车设计了一种模型预测控制（MPC）控制器以实现冗余热量回收。结果表明，该热管理策略不仅能够略微提升加热速度，还可将加热能耗降低20.95\%，同时保持较高的控温精度。然而，受限于传热过程的非线性特征\cite{Gao_2017_development}，建立精确的冗余热量控制模型仍然具有挑战性。因此，深入分析冗余热量的利用机制，并提出一种适用于远红外料筒加热系统的最优温度控制方法，具有重要的研究价值和现实紧迫性。\par
+
+本文旨在提出一种基于远红外料筒加热冗余热量分析的创新型温度控制方法——广义预测控制（GPC）。为全面准确地理解传热特性及冗余热量产生机制，本文建立了远红外料筒加热系统的热动力学模型及冗余热量预测模型。在此基础上，提出了一种结合实时冗余热量补偿的料筒温度GPC控制方法，以获取最优控制输入。\par
+
+本文其余部分的结构安排如下：第2节介绍实验设置，包括加热系统动力学模型和料筒温度控制实验平台；第3节阐述研究方法，涵盖冗余热量预测方法与GPC算法；第4节详细分析温度控制实验结果，并验证所提温度控制方法的有效性；第5节对全文进行总结。\par
+
+\section{大滞后料筒传热的集总参数模型}
+
+本文的研究对象为配备远红外加热器的注塑机料筒加热系统，其结构如图 \ref{fig:structure diagram of the barrel heating system} (a) 所示。该系统主要由料筒、射嘴、螺杆、安装于料筒上的远红外加热器、安装于射嘴处的电阻加热器以及若干热电偶组成。受限于结构复杂性和安装空间，射嘴处无法安装远红外加热器，因此必须采用电阻加热器。该加热系统被划分为多个温区，各区设定有不同的目标温度，通常从进料口至射嘴呈递增趋势。\par
+
+图 \ref{fig:structure diagram of the barrel heating system}(b) 展示了远红外加热器的典型结构。其主要由高阻加热丝、石英辐射管、反射层、保温层、不锈钢外壳以及热辐射防护层构成。通电后，绝大部分电能转化为热能，随后热量以热辐射的形式传递，并伴随可见光的发射。当光线穿过石英辐射管时，几乎所有的可见光和近红外光均被吸收。因此，热量主要以远红外光的形式传递给料筒。在加热过程中，反射层将远红外光向内反射，确保热量集中作用于料筒。此外，保温层的作用是最大限度地减少散热，从而显著降低热损耗。\par
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=.3\linewidth]{logo/zju}
-    \caption{\label{fig:zju-logo}浙江大学LOGO}
+    \includegraphics[width=6in]{structure diagram of the barrel heating system.png}
+    \caption{\centering 料筒加热系统示意图：(a) 加热系统结构图；(b) 远红外加热器结构；(c) 径向传热模型；(d) 轴向传热模型；(e) 热电偶模型。}
+    \label{fig:structure diagram of the barrel heating system}
 \end{figure}
 
+\subsection{系统动态模型推导}
+为了阐明加热系统的传热特性，本文建立了系统动力学模型。为简化分析，特提出以下几点假设：首先，假设各加热温区内的温度分布均匀，从而建立集总参数模型。由于热电偶仅能测量其接触点的温度，该测量值被视为代表料筒的整体温度。其次，在启动加热过程中，假设料筒内部充满空气，并忽略空气内部的流体流动及剪切压力的影响。\par
 
-\subsection{小节标题}
+系统动力学模型主要包含三个部分，即径向传热模型、轴向传热模型以及热电偶模型。\par
 
+\subsubsection{径向传热模型}
+每个加热温区主要由四部分组成：一段料筒、包覆在料筒外部的加热器（远红外加热器或电阻加热器）、插入料筒安装孔内的热电偶，以及料筒内部的空气（或熔体）。为简化模型，将料筒和加热器视为圆柱体，并忽略安装孔的影响。\par
 
-\par 如\autoref{tab:sample}所示，这是一张自动调节列宽的表格。
+考虑径向传热过程，如图 \ref{fig:structure diagram of the barrel heating system}(c) 所示，热量由加热器产生并直接传递给料筒。随着料筒温度升高，料筒与内部空气之间形成温差，进而通过对流方式将热量传递给空气。与此同时，热量通过传导、对流和辐射三种途径向周围环境耗散。本文采用集总参数法构建系统动力学模型，选取半径和长度中点处的温度作为该对象的代表温度。\par
 
-\begin{table}[htbp]
-    \caption{\label{tab:sample}自动调节列宽的表格}
-    \begin{tabularx}{\linewidth}{c|X<{\centering}}
-        \hline
-        第一列 & 第二列 \\ \hline
-        xxx & xxx \\ \hline
-        xxx & xxx \\ \hline
-        xxx & xxx \\ \hline
-    \end{tabularx}
-\end{table}
-
-
-\par 如\autoref{equ:sample}，这是一个公式
+假定加热器功率中的一部分转化为热能并被料筒吸收，其余部分热量则通过辐射和对流的方式耗散至环境中。据此，建立径向传热的热动力学方程，如式 \ref{eq:radial heat transfer model} 所示：\par
 
 \begin{equation}
-    \label{equ:sample}
-    A=\overbrace{(a+b+c)+\underbrace{i(d+e+f)}_{\text{虚数}}}^{\text{复数}}
+    \begin{aligned}
+        C_{b}\frac{d T_{b}}{d t}&=P_{h}-\frac{T_{b}-T_{m}}{R_{b, m}}-\beta(T^4_b-T^4_{env})-hA(T_b-T_{env}) \\
+        C_{m} \frac{d T_{m}}{d t}&=\frac{T_{b}-T_{m}}{R_{b, m}}
+    \end{aligned}
+    \label{eq:radial heat transfer model}
 \end{equation}
 
-\chapter{另一章}
+式中，$C_b$、$C_m$分别是料筒段和内部空气的比热容；$T_b$、$T_m$、$T_{env}$分别是料筒段、内部空气和环境的温度；$P_h$是加热功率；$R_{b, m}$是料筒段和内部空气的热阻；$\beta$表示料筒与外部环境之间的辐射系数，$h$表示料筒与环境之间的对流换热系数。\par
+
+\subsubsection{轴向传热模型}
+在逐步升温过程中，各加热区均需设定不同的温度设定点。如图 \ref{fig:structure diagram of the barrel heating system}(d) 所示，除径向传热外，由于温差的存成，还会发生轴向传热。本文考虑了相邻料筒段之间的热传导，并选取料筒的几何中心温度作为其代表温度。因此，轴向传热的热动力学方程可表示为式 \ref{eq:axial heat transfer model}：\par
+
+\begin{equation}
+    \begin{array}{cc}
+        C_1\dfrac{dT_1}{dt}&=\dfrac{T_2-T_1}{R_k}\\ 
+        C_2\dfrac{dT_2}{dt}&=\dfrac{T_1-T_2}{R_k}
+    \end{array}
+    \label{eq:axial heat transfer model}
+\end{equation}
+
+其中，$C_1$和$C_2$分别是加热区1和2的比热容；$T_1$、$T_2$分别是加热区1和2的温度。$R_k$是相邻料筒段之间的热阻。\par
+
+\subsubsection{热电偶模型}
+在加热过程中，必须考虑料筒与热电偶之间的热传递，该过程会显著影响温度感测的响应速度。如图 \ref{fig:structure diagram of the barrel heating system}(e) 所示，热电偶可建模为一个半径为$r$、有效接触长度为$l$的圆柱形铜合金体。热电偶模型可由式 \ref{eq:thermocouple model} 描述：
+\begin{equation}
+    C_p\frac{d T_p}{d t}=\frac{k_{p,b}A}{|0.5(r_1-r_0)-l|}\cdot(T_{b}-T_p)
+    \label{eq:thermocouple model}
+\end{equation}
+其中，$C_p$和$T_p$为热电偶的比热容和温度；$k_{p,b}$ 为热电偶与料筒之间的热阻；$A$ 为接触面积, $r_1$和$r_0$为料筒的外径和内径；$l$为接触母线长度。\par
 
 
-\begin{figure}[htbp]
+\subsubsection{系统动态模型}
+通过联立式 \ref{eq:radial heat transfer model}、式 \ref{eq:axial heat transfer model} 和式 \ref{eq:thermocouple model}，建立了连续系统动力学模型。在该模型中，由于远红外加热器能够有效减少热量耗散，因此忽略了料筒与环境之间的热对流和热辐射。同时，系统内部空气热容较小，其对料筒温度的影响亦予以忽略。然而，热电偶带来的影响以时间延迟的形式加以考虑。据此，对常数项进行简化，并计入由热电偶及传热过程所引起的时间延迟，最终建立了料筒加热系统的离散状态空间模型，如式 \ref{eq:system dynamic model} 所示：\par
+\begin{equation}
+    \begin{aligned}
+        \boldsymbol{x}_{n+1} &= \boldsymbol{A}\cdot x_{n} + \boldsymbol{B}\cdot \boldsymbol{u}_{n}\cdot\boldsymbol{d}\\ 
+        \boldsymbol{y}_{n+1} &= \boldsymbol{C}\cdot \boldsymbol{x}_{n} + \boldsymbol{D}\cdot \boldsymbol{u}_{n}
+    \end{aligned}
+    \label{eq:system dynamic model}
+\end{equation}
+
+式中，$\boldsymbol{C}=\boldsymbol{I}$，$\boldsymbol{D}=0$。$x_n$ 和 $x_{n+1}$ 表示状态变量，分别对应 $n$ 时刻和 $n+1$ 时刻的测量温度；$A$ 为状态矩阵，描述不同温区之间的传热关系；$\boldsymbol{B}$ 为控制矩阵，表征加热器输入功率对各温区的影响；$u_n$ 为输入变量，代表 $n$ 时刻的加热器功率；$\boldsymbol{D}_t$ 为延迟矩阵，用于计及各加热器的输入延迟；$y_{n+1}$ 为输出变量，代表 $n+1$ 时刻热电偶测得的温度，其值等于 $x_{n+1}$；$\boldsymbol{C}$ 为输出矩阵，描述状态变量与输出变量之间的关系；$\boldsymbol{D}$ 为前馈矩阵，表征输入变量对输出变量的直接影响。
+
+\subsubsection{冗余热量补偿模型}
+
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=.3\linewidth]{example-image-a}
-    \caption{\label{fig:fig-placeholder}图片占位符}
+    \includegraphics[width=6in]{diagram of generation of excess heat.jpg}
+    \caption{\centering 冗余热量生成过程图解: (a) 加热过程中的各个阶段；(b) a区处于加热阶段、b区处于加热结束阶段时产生的冗余热量；(c) a区处于保温阶段、b区处于加热结束阶段时产生的冗余热量；(d) a区与b区均处于加热结束阶段时产生的冗余热量。}
+    \label{fig:excess heat generation diagram}
 \end{figure}
 
-\chapter{再一章}
+鉴于远红外加热器的特殊设计，其热量耗散已被显著抑制，但这也导致热量逐渐积聚，进而引发明显的温度超调。为深入理解该多余热量的产生机理并对其进行有效补偿，本文建立了冗余热量补偿模型。\par
 
-\par 如\autoref{alg:sample}，这是一个算法
+所谓冗余热量，是指系统在达到目标温度后，由指定加热器以外的热源所产生的热量。各加热温区的料筒温度主要受对应加热器的功率输入影响，但同时也会受到其他温区加热器功率输入及温区间热传递的影响。\par
 
-\begin{algorithm}[H]
-    \begin{algorithmic} % enter the algorithmic environment
-        \REQUIRE $n \geq 0 \vee x \neq 0$
-        \ENSURE $y = x^n$
-        \STATE $y \Leftarrow 1$
-        \IF{$n < 0$}
-            \STATE $X \Leftarrow 1 / x$
-            \STATE $N \Leftarrow -n$
-        \ELSE
-            \STATE $X \Leftarrow x$
-            \STATE $N \Leftarrow n$
-        \ENDIF
-        \WHILE{$N \neq 0$}
-            \IF{$N$ is even}
-                \STATE $X \Leftarrow X \times X$
-                \STATE $N \Leftarrow N / 2$
-            \ELSE[$N$ is odd]
-                \STATE $y \Leftarrow y \times X$
-                \STATE $N \Leftarrow N - 1$
-            \ENDIF
-        \ENDWHILE
-    \end{algorithmic}
-    \caption{\label{alg:sample}算法样例}
-\end{algorithm}
+如图 \ref{fig:excess heat generation diagram}(a) 所示，加热过程可划分为三个阶段：加热阶段、保温阶段和加热结束阶段。在加热阶段，加热器以高功率运行，促使料筒温度迅速上升。在保温阶段，加热器以较低功率运行以补偿热量耗散，从而维持料筒温度稳定。最后，在加热结束阶段，加热器关闭，料筒温度仅受冗余热量的影响。\par
+
+冗余热量的产生主要源于三种情形。第一种情形如图 \ref{fig:excess heat generation diagram}(b) 所示，a区处于加热阶段，而b区处于加热结束阶段。在此场景下，a区的功率输入会影响b区的温度。由于a区被加热至远高于b区的温度，热传导随之发生，从而产生冗余热量，导致b区温度升高。第二种情形如图 \ref{fig:excess heat generation diagram}(c) 所示，a区处于保温阶段，而b区处于加热结束阶段。与第一种情形类似，b区的温度也会受到a区功率输入的影响，但由于保温阶段的加热功率较低，其影响相对较小。第三种情形如图 \ref{fig:excess heat generation diagram}(d) 所示，a区和b区均处于加热结束阶段。在此场景下，不同的目标温度设定导致了热传递的发生，其结果是b区温度略微升高，而a区温度降低。此外，设备自身的冗余热量是指加热器关闭后内部残留的热量，由于难以对其进行精确建模，因此通过实验方法进行补偿。\par
+
+冗余热量流量$q_{exs}$的计算如式 \ref{eq:system dynamic model2}所示。\par
+\begin{equation}
+    \begin{aligned}
+        q_{exs} = q_{exs,h} + q_{exs,m} + q_{exs,t,b} + q_{exs,s}
+        \\ 
+        q_{exs,h} = \lambda_{b,a} \cdot u_{a}
+        \\
+        q_{exs,m} = \lambda_{b,a} \cdot u_{a,m}
+        \\
+        q_{exs,t,b} = \mu_{b,a} \cdot \Delta T_{b,a}
+    \end{aligned}
+    \label{eq:system dynamic model2}
+\end{equation}
+其中，$q_{exs,h}$ 表示情形1中产生的冗余热量流量，$\lambda_{b,a}$ 为控制系数，用于描述a区功率输入对b区温度的影响，$u_a$ 为a区的控制输入；$q_{exs,m}$ 表示情形2中产生的冗余热量流量，$u_{a,m}$ 为补偿热量耗散并维持a区温度所需的控制输入；$q_{exs,t}$ 表示情形3中由热传递产生的冗余热量流量，$\mu_{b,a}$ 为传热系数，用于描述从a区到b区的热传导影响；$\Delta T_{b,a}$ 为a区与b区之间的温差；$q_{exs,s}$ 为加热器关闭后产生的冗余热量。
+
+\section{广义预测控制方法}
+
+\subsection{控制方法框架图解}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{framework of control method.png}
+    \caption{控制方法框架图解}
+    \label{fig:framework of control method}
+\end{figure}
+图 \ref{fig:framework of control method} 展示了为实现目标温度所采用的控制方法的整体流程。该流程始于系统动力学模型的建立，包括集总系统动力学模型和冗余热量模型。如第2节所述，集总系统动力学模型作为参考模型，并在此基础上进一步构建了冗余热量模型。\par
+
+随后，制定了一种融合广义预测控制与冗余热量预测的控制算法。该算法包含几个关键步骤：递推预测模型、多步优化以及反馈校正。其中，递推预测模型利用集总系统动力学模型来描述系统行为。基于预测结果，建立多步代价函数。然后，通过多步优化求解最优控制输入，该过程综合考虑了代价函数与冗余热量模型。\par
+
+此外，在将控制信号施加于料筒加热系统的同时，持续进行实时温度测量。所获得的反馈温度数据用于反馈校正，并通过模型辨识对系统动力学模型进行修正。遵循上述流程，形成一个闭环控制循环，使得料筒加热系统能够以更高的精度紧密跟踪目标温度。\par
+
+\subsection{冗余热量预测模型}
+本节介绍基于系统动力学模型的冗余热量实时预测方法。各加热温区的剩余加热时间与保温功率通过源自该动力学模型的微分方程进行计算。式 \ref{eq:excess heat compensation model} 建立了热流量与温升之间的关系：\par
+\begin{equation}
+    \begin{aligned}
+        \Delta T_{exs,i,k+1}(t) 
+        = &(q_{exs,h}+q_{exs,t})\cdot (t_{left,j}-t_{left,i})\\
+        &+ (q_{exs,m}+q_{exs,t})\cdot t_{settle} + q_{exs,s,k+1}\\
+        = &(\lambda_{i,j} \cdot u_{j} + \mu_{i,j} \cdot \Delta T_{j,i,h})\cdot (t_{left,j}-t_{left,i})\\
+        &+ (\lambda_{i,j} \cdot u_{hold,j} + \mu_{i,j} \cdot \Delta T_{j,i,m})\cdot t_{settle}\\
+        &+ q_{exs,s,k} + K_p e_{k+1}
+    \end{aligned}
+    \label{eq:excess heat compensation model}
+\end{equation}
+式中，$\Delta T_{exs,i,j,k+1}(t)$ 为第 $k+1$ 次迭代计算中，由 $j$ 区产生的冗余热量所引起的 $i$ 区温升预测值；$t_{left,j}$ 和 $t_{left,i}$ 分别为 $j$ 区和 $i$ 区的剩余加热时间；$t_{settle}$ 为预期稳定时间减去当前时间，即 $t_{left}+2\cdot d -t$；$\Delta T_{j,i,heat}$ 和 $\Delta T_{j,i,maintain}$ 分别为加热阶段和保温阶段 $j$ 区与 $i$ 区之间的温差；$u_{hold,j}$ 为 $j$ 区所需的保温输入。\par
+
+\subsection{基于GPC算法的冗余热量预测模型}
+广义预测控制方法最初由Clarke等人\cite{Clarke_1987_generalized}提出，现已成为工业界与学术界应用最为广泛的模型预测控制方法之一。通过在众多工业应用中的成功实践，该方法表现出优异的性能与较强的鲁棒性。此外，广义预测控制在解决各类被控对象的多种控制问题方面，也证明了其广泛的适用性。其基本原理是计算一系列未来控制信号，以最小化定义在预测时域上的代价函数，这一过程通过结合递推预测模型、多步优化与反馈校正来实现。\par
+
+\subsubsection{递归预测模型推导}
+本节建立系统预测模型，以获取系统温度输出的最优预测。式 \ref{eq:system dynamic model} 所描述的系统动力学模型为一个多输入多输出被控对象，该对象可由受控自回归积分滑动平均模型表示，如式 \ref{eq:CARIMA model} 所示：
+\begin{equation}
+    \boldsymbol{A}_p\left(z^{-1}\right)\boldsymbol{y}(t) = \boldsymbol{B}_p\left(z^{-1}\right)z^{-d}\boldsymbol{u}(t-1)+\boldsymbol{C}_p\left(z^{-1}\right)\frac{e(t)}{\Delta}
+    \label{eq:CARIMA model}
+\end{equation}
+
+其中，$ \Delta = 1 - z^{-1} $，$\boldsymbol{u}(t)$ 和 $\boldsymbol{y}(t)$ 分别为控制信号序列与温度输出序列，均为 $m \times 1$ 维向量，$m$ 为加热温区的数量；$e(t)$ 为零均值白噪声；$d$ 为系统的时间延迟。为简化起见，后续分析中取多项式 $\boldsymbol{C}_p\left(z^{-1}\right)$ 为单位矩阵 $I$。\par
+
+因此，CARIMA 模型刻画了系统输出与输入对未来系统输出的影响。在输入序列已知的前提下，可通过递推计算获得系统输出的预测值。为实现对 $\boldsymbol{y}(t+1)$ 的最优预测，考虑式 \ref{eq:prediction model 1} 中给出的丢番图方程：\par
+
+\begin{equation}
+    \boldsymbol{I}=\boldsymbol{E}_{j}\left(z^{-1}\right) \tilde{\boldsymbol{A}}\left(z^{-1}\right)+z^{-j} \boldsymbol{F}_{j}\left(z^{-1}\right)
+    \label{eq:prediction model 1}
+\end{equation}
+其中，$\tilde{\boldsymbol{A}}\left(z^{-1}\right)=\Delta \boldsymbol{A}\left(z^{-1}\right)$.\par
+
+多项式 $\boldsymbol{E}_j$ 和 $\boldsymbol{F}_j$ 可通过递归方式求得。因此，时刻 $t$ 对 $\boldsymbol{y}(t+j)$ 的最优预测值可由式 \ref{eq:prediction model 2} 得出：
+
+\begin{equation}
+    \hat{\boldsymbol{y}}(t+j \mid t) = \boldsymbol{G}_{j}\left(z^{-1}\right) \Delta \boldsymbol{u}(t+j-d-1)+F_{j}\left(z^{-1}\right) \boldsymbol{y}(t)
+    \label{eq:prediction model 2}
+\end{equation}
+
+其中，$\boldsymbol{G}_j\left(z^{-1}\right) = \boldsymbol{E}_j\left(z^{-1}\right) \boldsymbol{B}\left(z^{-1}\right)$ ， $\hat{\boldsymbol{y}}(t+j)$ 表示基于截至时刻 $t$ 的数据所得到的系统输出的最优 $j$ 步超前预测值。\par
+
+鉴于所研究的加热系统存在 $d$ 个采样周期的延迟，系统温度输出将在 $d+1$ 个采样周期后才受到控制信号 $\boldsymbol{u}(t)$ 的影响。因此，式 \ref{eq:prediction model 2} 可改写为式 \ref{eq:prediction model 3}：\par
+
+\begin{equation}
+    \mathbf{y}=\mathbf{Gu}+\mathbf{f}
+    \label{eq:prediction model 3}
+\end{equation}
+其中， $\mathbf{f} = \mathbf{F}\left(z^{-1}\right) \boldsymbol{y}(t)+\mathbf{G}^{\prime}\left(z^{-1}\right) \Delta \boldsymbol{u}(t-1)$，且\par
+\begin{equation}
+    \begin{array}{l}
+        \mathbf{y} = 
+            \left[\begin{array}{c}
+                \hat{\boldsymbol{y}}(t+d+1 \mid t) \\
+                \hat{\boldsymbol{y}}(t+d+2 \mid t) \\
+                \vdots \\
+                \hat{\boldsymbol{y}}(t+d+N \mid t)
+            \end{array}\right]
+        \quad \mathbf{u} = 
+            \left[\begin{array}{c}
+                \Delta \boldsymbol{u}(t) \\
+                \Delta \boldsymbol{u}(t+1) \\
+                \vdots \\
+                \Delta \boldsymbol{u}(t+N-1)
+            \end{array}\right] \\ 
+        \mathbf{G} = 
+            \left[\begin{array}{cccc}
+                \boldsymbol{g}_{0} & \boldsymbol{0} & \ldots & \boldsymbol{0} \\
+                \boldsymbol{g}_{1} & \boldsymbol{g}_{0} & \cdots & \boldsymbol{0} \\
+                \vdots & \vdots & \vdots & \vdots \\
+                \boldsymbol{g}_{N-1} & \boldsymbol{g}_{N-2} & \cdots & \boldsymbol{g}_{0}
+            \end{array}\right] \\ 
+        \mathbf{G}^{\prime}\left(z^{-1}\right) = 
+            \left[\begin{array}{c}
+                \left(\boldsymbol{G}_{d+1}\left(z^{-1}\right)-\boldsymbol{g}_{0}\right)z \\
+                \left(\boldsymbol{G}_{d+2}\left(z^{-1}\right)-\boldsymbol{g}_{0}-\boldsymbol{g}_{1}z^{-1}\right)z^{2} \\
+                \vdots \\
+                \left(\boldsymbol{G}_{d+N}\left(z^{-1}\right)-\boldsymbol{g}_{0}-\boldsymbol{g}_{1} z^{-1}-\cdots-\boldsymbol{g}_{N-1} z^{-(N-1)}\right)z^{N}
+            \end{array}\right] \\ 
+        \mathbf{F}\left(z^{-1}\right) = 
+            \left[\begin{array}{c}
+                \boldsymbol{F}_{d+1}\left(z^{-1}\right) \\
+                \boldsymbol{F}_{d+2}\left(z^{-1}\right) \\
+                \vdots \\
+                \boldsymbol{F}_{d+N}\left(z^{-1}\right)
+            \end{array}\right] \\
+    \end{array}
+    \label{eq:prediction model matrices}
+\end{equation}
+始终 $N$ 为预测时间步长.\par
+
+\subsubsection{结合冗余热量预测的约束多步优化}
+最优控制输入基于对控制输入所引起输出响应的预测进行计算。在此框架下，优化的目标是在最小化输出误差的同时，也尽可能减小控制作用。多步代价函数包含一个二次函数的期望值，该函数一方面衡量在预设时间范围内预测温度输出与参考序列之间的偏差，另一方面则量化控制作用的大小。考虑到式 \ref{eq:excess heat compensation model} 中预测得到的冗余热量，该部分对加热过程中非预期的温升进行了解释。目标温度设定为 $\boldsymbol{r} = [185, 210, 220, 225, 220]$。综合预测输出误差、冗余热量引起的温升以及控制作用的变化率，代价函数如式 \ref{eq:cost function 1} 所示：\par
+\begin{equation}
+    \boldsymbol{J}\left(N_{1}, N_{2}, N_{u}\right)
+    = \sum_{j=N_{1}}^{N_{2}} \delta(j)[\hat{\boldsymbol{y}}(t+j \mid t)-\boldsymbol{w}(t+j)+\boldsymbol{T}_{exs}(t+j)]^{2}+\sum_{j=1}^{N_{u}} \lambda(j)[\Delta \boldsymbol{u}(t+j-1)]^{2}
+    \label{eq:cost function 1}
+\end{equation}
+式中，$N_1$ 和 $N_2$ 分别表示最小和最大预测时域；$N_u$ 表示控制时域，其定义为 $N_1=d+1$，$N_2=d+N$ 且 $N_u=N$；$\delta_j=\lambda_j=1$ 表示加权序列；$\boldsymbol{T}_{exs}(t+j)$ 表示从 $t+j$ 到 $t_{settle}$ 期间由冗余热量引起的预测温升；$\boldsymbol{w}(t+j)$ 为系统输出的未来参考轨迹。因此，$\hat{\boldsymbol{y}}(t+j \mid t)-\boldsymbol{w}(t+j)+\boldsymbol{T}_{exs}(t+j)$ 代表可控输出误差与不可控冗余热量，$\Delta \boldsymbol{u}(t+j-1)$ 代表控制作用的变化率。此外，文献\cite{Jeon_2022_melt}中存在一些关于选择这些参数的指导原则。\par
+将式 \ref{eq:prediction model matrices}代入式 \ref{eq:cost function 1}，得到：\par
+\begin{equation}
+    \boldsymbol{J}=(\mathbf{G} \mathbf{u}+\mathbf{f}-\mathbf{w}+\mathbf{T}_{exs})^{T}\mathbf{Q}(\mathbf{G} \mathbf{u}+\mathbf{f}-\mathbf{w}+\mathbf{T}_{exs}) + \mathbf{u}^{T}\mathbf{R}\mathbf{u}
+    \label{eq:cost function 2}
+\end{equation}
+其中， $\mathbf{Q} = \mathbf{R} = \mathbf{I}$ 是单位矩阵，且\par
+\begin{equation}
+    \begin{array}{cl}
+        \mathbf{w} &= \left[\begin{array}{cccc} \boldsymbol{w}(t+d+1) &\boldsymbol{w}(t+d+2) &\cdots &\boldsymbol{w}(t+d+N) \end{array}\right]^{T}\\
+        \mathbf{T}_{exs} &= \left[\begin{array}{cccc} \boldsymbol{T}_{exs}(t+d+1) &\boldsymbol{T}_{exs}(t+d+2) &\cdots &\boldsymbol{T}_{exs}(t+d+N) \end{array}\right]^{T}
+    \end{array}
+\end{equation}
+
+控制信号 $\boldsymbol{u}(t)$ 受限于占空比的下限和上限，其值分别为 $0$ 和 $100$。为了考虑这一约束，该问题表述为：\par
+\begin{equation}
+    \begin{array}{cl}
+    \text{min} &\boldsymbol{J}=\dfrac{1}{2}\mathbf{u}^{T} \mathbf{H} \mathbf{u}+\mathbf{b}^{T} \mathbf{u}+f_{0}\\
+    \text{s.t.} &\mathbf{1}(\boldsymbol{u}_{lb}-\boldsymbol{u}(t-1))\leq \mathbf{Tu}\\
+    &\mathbf{Tu}\leq \mathbf{1}(\boldsymbol{u}_{ub}-\boldsymbol{u}(t-1))
+    \end{array}
+\end{equation}
+其中，
+\begin{equation}
+    \begin{aligned}
+        \mathbf{H} &= 2\left(\mathbf{G}^{T}\mathbf{Q}\mathbf{G}+\mathbf{R}\right)\\
+        \mathbf{b}^{T} &= 2(\mathbf{f}-\mathbf{w}+\mathbf{T}_{exs})^{T} \mathbf{G} \mathbf{R}\\
+        f_{0} &= (\mathbf{f}-\mathbf{w}+\mathbf{T}_{exs})^{T} \mathbf{Q} (\mathbf{f}-\mathbf{w}+\mathbf{T}_{exs})
+    \end{aligned}
+\end{equation}
+式中，矩阵 $\mathbf{T}$ 是一个元素均为 1 的下三角矩阵，$\mathbf{1}$ 是由 1 组成的向量；$\boldsymbol{u}_{lb}$ 和 $\boldsymbol{u}_{ub}$ 分别为控制信号的下界和上界。\par
+
+未来控制增量向量 $\mathbf{u}$ 写为：\par
+\begin{equation}
+    \mathbf{u}=
+        \left[\begin{array}{ccccc}
+            \boldsymbol{1} & \boldsymbol{0} & \boldsymbol{0} & \cdots & \boldsymbol{0} \\
+            -\boldsymbol{1} & \boldsymbol{1} & \boldsymbol{0} & \cdots & \boldsymbol{0} \\
+            \boldsymbol{0} & -\boldsymbol{1} & \boldsymbol{1} & \cdots & \boldsymbol{0} \\
+            \vdots & & & \ddots & \vdots \\
+            \boldsymbol{0} & \boldsymbol{0} & \boldsymbol{0} & \cdots & \boldsymbol{1}
+        \end{array}\right]
+        \left[\begin{array}{c}
+            \boldsymbol{u}(t) \\ \boldsymbol{u}(t+1) \\ \vdots \\ \boldsymbol{u}(t+N)
+        \end{array}\right] - 
+        \left[\begin{array}{c}
+            \boldsymbol{u}(t-1) \\ \boldsymbol{0} \\ \vdots \\ \boldsymbol{0}0
+        \end{array}\right] = 
+        \mathbf{DU}-\mathbf{f}_{1}
+\end{equation}
+式中，$\boldsymbol{1}$ 和 $\boldsymbol{0}$ 分别为由 1 和 0 组成的向量；$\mathbf{U}$ 为未来控制信号矩阵。\par
+系统温度输出的未来预测如式 \ref{eq:prediction model 4}所示：\par
+\begin{equation}
+    \mathbf{y}=\mathbf{G}(\mathbf{DU}-\mathbf{f}_{1})+\mathbf{f}_{0}=\mathbf{G}^{\prime} \mathbf{U}+\mathbf{f}_{2}
+    \label{eq:prediction model 4}
+\end{equation}
+式中，$\mathbf{G}^{\prime}$ 是一个下三角矩阵，其所有主对角线元素均等于 $\boldsymbol{g}_0$，其次对角线元素由 $\boldsymbol{g}_i-\boldsymbol{g}_{i-1}$ 给出，向量 $\mathbf{f}_{2}$ 可表示为 $(\mathbf{f}_{2})_{i}=(\mathbf{f}_{0})_{i}-\boldsymbol{g}_{i} \boldsymbol{u}(t-1)$。\par
+此时代价函数可表示为关于未来控制信号的函数 $\mathbf{U}$，如式 \ref{eq:cost function 3}所示:\par
+\begin{equation}
+    \boldsymbol{J}^{\prime}(\mathbf{U})=\frac{1}{2} \mathbf{U}^{T} \mathbf{H}^{\prime} \mathbf{U}+\mathbf{b}^{\prime}+\mathbf{f}^{\prime}
+    \label{eq:cost function 3}
+\end{equation}
+其中，
+\begin{equation}
+    \begin{aligned}
+        \mathbf{H}^{\prime} &= 2\left(\mathbf{G}^{\prime T} \mathbf{Q} \mathbf{G}+\mathbf{D}^{T} \mathbf{R} \mathbf{D}\right)\\
+        \mathbf{b}^{\prime} &= 2\left[\left(\mathbf{f}_{2}-\mathbf{w}+\mathbf{T}_{exs}\right)^{T} \mathbf{G}^{\prime}-\mathbf{f}_{1}^{T} \mathbf{D}\right]\mathbf{R}\\
+        \mathbf{f}^{\prime} &= \left(\mathbf{f}_{2} - \mathbf{w}+\mathbf{T}_{exs}\right)^{T} \mathbf{Q} \left(\mathbf{f}_{2}-\mathbf{w}+\mathbf{T}_{exs}\right) + \mathbf{f}_{1}^{T} \mathbf{R} \mathbf{f}_{1}
+    \end{aligned}
+\end{equation}\par
+
+$\boldsymbol{J}^{\prime}$会在$\boldsymbol{J}^{\prime}$的梯度为 0 时取到最小值。实际发送至过程的实际控制信号为矩阵 $\mathbf{U}$ 的第一行，即采样时刻 $t$ 的控制信号。\par
+
+\subsubsection{反馈修正}
+机器参数的变化、热传递关系的改变以及环境条件的波动，均可能导致预测模型与实际加热系统之间出现偏差。此外，未知扰动也会影响预测模型的准确性。为应对模型失配与未知扰动可能带来的影响，需对模型参数进行实时更新。本文采用递归最小二乘法（RLS），通过实时辨识持续校准模型，从而提高温度控制的精度。根据所建立的动态模型，代表模型参数的矩阵定义如式 \ref{eq:RLS model} 所示：\par
+
+\begin{equation}
+    \begin{array}{c}
+        \boldsymbol{\alpha} = \left[\begin{array}{cccccccc}
+            \boldsymbol{a}_1,& \boldsymbol{a}_2,& \cdots,& \boldsymbol{a}_{na},& \boldsymbol{b}_0,& \boldsymbol{b}_1,& \cdots,& \boldsymbol{b}_{nb}
+        \end{array}\right]^T \\
+        \boldsymbol{\beta}(t) = \left[\begin{array}{cccccc}
+            \boldsymbol{y}(t-1),& \cdots,& \boldsymbol{y}(t-na),& \boldsymbol{u}(t-1),& \cdots,& \boldsymbol{u}(t-nb-1)
+        \end{array}\right]^T
+    \end{array}    
+    \label{eq:RLS model}
+\end{equation}\par
+
+因此，系统的输出可如式 \ref{eq:RLS model output}所示：\par
+\begin{equation}
+    \boldsymbol{y}(t) = \boldsymbol{\beta}^T(t) \alpha + \frac{e(t)}{\Delta}
+    \label{eq:RLS model output}
+\end{equation}\par
+采用具备遗忘记忆能力的RLS方法获得的系统参数估计如式 \ref{eq:RLS model estimate}所示：\par
+
+\begin{equation}
+    \begin{array}{l}
+        \hat{\boldsymbol{\alpha}}(t) = \hat{\boldsymbol{\alpha}}(t-1) + \boldsymbol{W}(t)\left[\Delta \boldsymbol{y}(t)-\boldsymbol{\beta}^{T}(t) \hat{\boldsymbol{\alpha}}(t-1)\right] \\
+        \boldsymbol{W}(t) = \boldsymbol{P}(t-1) \boldsymbol{\beta}(t) \left[\boldsymbol{\beta}^{T}(t) \boldsymbol{P}(t-1) bm{\beta}(t)+ \eta\right]^{-1} \\
+        \boldsymbol{P}(t) = \left[\boldsymbol{I} - W(t) \boldsymbol{\beta}^{T}(t)\right] \boldsymbol{P}(t-1) / \eta
+    \end{array}
+    \label{eq:RLS model estimate}
+\end{equation}
+
+式中，$\eta = [0,\,1]$ 为遗忘因子，此处选取 $\eta = 0.985$；$\boldsymbol{W}(t)$ 为加权矩阵；$\boldsymbol{P}(t)$ 为正定协方差矩阵。\par
+
+初始值设定为 $\boldsymbol{\alpha}(0) = \boldsymbol{0}$ 且 $\boldsymbol{P}(0) = \delta \boldsymbol{I}$，其中 $\delta = 1\times10^6$。在每个采样周期内，推导计算出 $\boldsymbol{W}(t)$、$\boldsymbol{P}(t)$ 和 $\hat{\boldsymbol{\alpha}}(t)$，从而更新预测模型，旨在获得最优控制信号。\par
+
+\section{实验结果与分析}
+
+在注塑加热过程中，最受关注的指标是温度超调、加热时间和能耗。过大的超调会导致聚合物材料在高温下分解，从而显著影响产品质量。而加热时间和能耗则分别影响着生产时效性和能效。因此，本文中的“精度提升”特指平均超调量的降低。温度控制精度、时效性以及能效至关重要 \cite{Peng_2012_model}。为达成这些目标，本文提出了一种基于冗余热量预测的广义预测控制（GPC）方法。本节将展示并对比该方法与常规GPC及PID控制方法的实验结果。实验涵盖了多区加热和第二目标加热两种工况。
+
+\subsection{多区加热实验}
+
+多区加热过程中的热传递行为远比单区加热过程复杂。为验证本文所提方法的有效性，开展了一项多区加热控制实验。从第1区到射嘴，各区的目标温度依次设定为：185\centigrade、210\centigrade、220\centigrade、225\centigrade 和 220\centigrade。料筒的初始温度约为 25\centigrade。实验对比了 PID、GPC 以及本文所提方法的控制结果，并采集了整个加热过程中的温度数据。\par
+
+实验结果如图 \ref{fig:multi-zone heating experiments} 所示。图中的温度曲线展示了加热过程中的温度变化情况。为便于观察，温度接近目标值的时段被放大，并标示了加热过程中达到的峰值温度。此外，超调量计算为峰值温度与目标温度之差，并显示在每张子图的左上角。观察发现，各加热区的升温速度相对均匀。温度超调主要是由冗余热量引起的。与第 2、3、4 区相比，第 1 区和射嘴处的超调量明显较小。这归因于第 1 区部分接触料筒的未加热段，而射嘴采用电阻加热，导致散热增加。值得注意的是，最大的超调量始终出现在第 4 区，这归因于维持射嘴区域温度所需的功率对其产生的影响。\par
+
+PID 方法的结果如图 \ref{fig:multi-zone heating experiments}(a) 所示。最大的超调量出现在第 4 区，达到 18.5\centigrade。各区的平均超调量为 12.9\centigrade。然而，PID 方法在处理具有显著大滞后和大超调的控制对象时存在局限性，容易产生温度波动。GPC 方法（如图 \ref{fig:multi-zone heating experiments}(b) 所示）取得了更好的结果。GPC 方法采用多步预测、递推优化和反馈校正，使其更适合处理具有大滞后特性的加热系统。采用 GPC 控制后的平均超调量降低到了 9.0\centigrade。与 PID 方法相比，第 1、2、3 和 4 区的超调量减少了 30\% 以上。然而，射嘴处的超调量与使用 PID 方法时仍然相近。这种差异归因于 GPC 方法忽略了冗余热量的影响，而射嘴对热量积累尤为敏感。
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{results of multi-zone heating experiments.png}
+    \caption{\centering 多区加热实验结果：(a) PID 方法；(b) GPC 方法；(c) 本文所提方法的第 0 次迭代；(d) 本文所提方法的第 1 次迭代。}
+    \label{fig:multi-zone heating experiments}
+\end{figure}
+
+为了考虑冗余热量的影响，本文提出的方法包含两个步骤。首先，在不考虑设备冗余热量的情况下进行了一次预实验，这里的设备冗余热量指的是加热器关闭后产生的冗余热量，如图 \ref{fig:multi-zone heating experiments}(c) 所示。通过考虑冗余热量的影响，与 GPC 方法相比，温度超调量进一步降低了约 30\%。其次，将第一步中的超调量视为设备冗余热量，并据此进行补偿。结果如图 \ref{fig:multi-zone heating experiments}(d) 所示，表明温度超调量显著减少。最大超调量为 3.0\centigrade，平均超调量降低至 1.9\centigrade。在此，“精度提升”指的是平均超调量的减少。采用本文提出的方法，与 PID 方法相比控制精度提高了 85.3\%，与 GPC 方法相比提高了 78.9\%，证实了该方法的有效性。提高温度控制精度对于实现稳定的产品质量至关重要 \cite{Peng_2011_melt}。表 \ref{Tab: control accuracy 1} 展示了不同方法之间温度控制精度的对比。\par
+
+\begin{table}[ht]
+	\centering
+	\caption{多区加热温度控制精度对比}
+	\begin{tabular}{cccccccc}
+		\toprule
+		方法名称 & 超调量  & 超调量  & 超调量  & 超调量  & 超调量  & 平均值  & 精度 \\        
+        & 区域 1 & 区域 2 & 区域 3 & 区域 4 & 射嘴 & 超调量 & 提升程度 \\
+        & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\%) \\
+		\midrule
+		PID & 6.2 & 16.5 & 17.3 & 18.5 & 6.0 & 12.9 & -  \\
+        GPC & 4.0 & 10.7 & 11.2 & 12.6 & 6.7 & 9.0  & 30.2 \\
+        Proposed method & 1.0 & 6.7 & 7.5 & 9.4 & 3.7 & 5.7 & 55.8 \\
+        iteration 0     &     &     &     &     &     &     &    \\
+        Proposed method & 1.0 & 2.7 & 1.2 & 3.0 & 1.5 & 1.9 & 85.4 \\
+        iteration 1     &     &     &     &     &     &     &    \\
+		\bottomrule
+	\end{tabular}
+    \label{Tab: control accuracy 1}
+   \end{table}
+
+此外，还对调节时间与能耗进行了测量。调节时间定义为各温区温度达到其稳定温度98\%所需的时间。如图 \ref{fig:multi-zone heating experiments} 所示，采用PID控制时，在最初的1800秒内温度波动仍未稳定，因此其调节时间被认为大于1800秒。GPC方法的调节时间测得为1235秒，而本文所提方法的调节时间为1031秒。为消除初始温度的影响，能耗的测量从平均温度达到150\centigrade 时开始，至调节时间结束为止，此阶段被视为稳定加热期。在此期间，PID、GPC及本文所提方法的能耗分别为0.61 kW$\cdot$h、0.59 kW$\cdot$h和0.44 kW$\cdot$h。\par
+
+\begin{table}
+    \centering
+    \caption{多区加热调节时间与能耗对比}
+    \label{Tab: time and energy}
+    \begin{tabular}{ccccc}
+        \toprule
+        方法名称 & 调节时间 & 节约时间 & 能耗 & 节约能耗 \\
+        & (s) & (\%) & (kW$\cdot$h) & (\%) \\
+        \midrule
+        PID             & $>$1800 & -    & 0.61 & -    \\
+        GPC             & 1235    & 31.4 & 0.59 & 3.3  \\
+        Proposed method & 1103    & 38.7 & 0.54 & 11.5 \\
+        iteration 0 & & & & \\
+        Proposed method & 1031    & 42.7 & 0.44 & 27.9 \\
+        iteration 1 & & & & \\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+调节时间和能耗的对比情况如表 \ref{Tab: time and energy} 所示。结果表明，以 PID 方法的 1800 秒作为调节时间基准，本文所提方法与传统的 PID 相比，加热时间缩短了 42.7\%，能耗降低了 27.9\%。此外，该方法的表现也优于 GPC 方法，加热时间减少了 16.5\%，能耗降低了 25.4\%。这些发现凸显了本文所提方法在有效提升加热速度以及改善节能环保性能方面的优势。\par
+
+\subsection{二次升温实验}
+在某些工艺应用中，当温度达到第一目标值后，往往需要对料筒温度进行调整以进行二次升温。此时，控制方法必须能够适应不同的工况。为验证本文所提方法的适应性，开展了二次升温实验。文中对比并展示了 PID 方法与本文所提方法的实验结果。\par
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6in]{results of the second heating experiments.png}
+    \caption{\centering 二次升温实验结果：(a) PID 方法；(b) 本文所提方法的第 0 次迭代；(c) 本文所提方法的第 1 次迭代。}
+    \label{fig:second-target heating experiments}
+\end{figure}
+
+第一目标温度从第 1 区到射嘴依次设定为 185\centigrade、210\centigrade、220\centigrade、225\centigrade 和 220\centigrade。随后，第二目标温度依次设定为 225\centigrade、250\centigrade、260\centigrade、265\centigrade 和 260\centigrade，即在第一目标的基础上均提升了 40\centigrade。初始温度约为 25\centigrade。料筒首先被加热至第一目标温度，待温度稳定后，再进一步加热以达到第二目标温度。\par
+
+实验结果如图 \ref{fig:second-target heating experiments} 所示。各控制方法的温度超调量绘制在对应子图的右下角。PID 方法的结果如图 \ref{fig:second-target heating experiments}(a) 所示。超调量的分布情况（主要由冗余热量引起）与多区加热实验相似。第 1 区和射嘴处的超调量明显小于第 2、3、4 区，且最大超调量始终出现在第 4 区。可以观察到，系统存在显著波动，且射嘴未达到目标温度，导致了较大的稳态误差。除射嘴外，PID 方法的平均超调量为 10.9\centigrade。本文所提方法的结果如图 \ref{fig:second-target heating experiments}(c) 和 (d) 所示，分别代表设备冗余热量补偿前和补偿后的情况。在实施设备冗余热量补偿之前，所有第二温度目标均已成功达到，且温度超调量普遍降低，平均超调量为 7.8\centigrade。然而，在实施设备冗余热量补偿后，平均超调量进一步降低至 1.7\centigrade，与 PID 方法相比降低了 84.4\%。这些发现总结于表 \ref{Tab: control accuracy 3}，该表对比了不同方法的温度控制精度。结果表明，控制精度与第一目标加热过程中观察到的精度相当，证明了本文所提方法在不同工况下的适应性。
+
+\begin{table}[ht]
+	\centering
+	\caption{二次升温实验温度控制精度对比}
+	\label{Tab: control accuracy 2}
+	\begin{tabular}{cccccccc}
+		\toprule
+		方法名称 & 超调量  & 超调量  & 超调量  & 超调量  & 超调量  & 平均值  & 精度 \\        
+        & 区域 1 & 区域 2 & 区域 3 & 区域 4 & 射嘴 & 超调量 & 提升程度 \\
+        & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\centigrade) & (\%) \\
+		\midrule
+		PID             & 6.0 & 11.6 & 12.6 & 13.2 & -0.9 & 12.4 & -    \\
+        Proposed method & 5.5 & 8.9  & 9.7  & 9.6  & 5.3  & 7.8  & 37.1 \\
+        (iteration0) & & & & & & & \\
+        Proposed method & 0.0 & 1.1  & 1.6  & 3.0  & 2.8  & 1.7  & 86.3 \\
+        (iteration1) & & & & & & & \\
+		\bottomrule
+	\end{tabular}
+    \label{Tab: control accuracy 3}
+\end{table}
+
+\chapter{数据驱动的加热/冷却变工况料筒温度预测方法}
+
+
+\chapter{机理/数据融合驱动的料筒温度预测控制方法}
+
+
+\chapter{注射成形料筒温度物联网监控系统与应用验证}
+
+
+\chapter{总结与展望}
